@@ -77,6 +77,10 @@ messages = {
     "total_price": {
         "de": "Gesamtpreis: ",
         "en": "Total price: "
+    },
+    "total_price_query": {
+        "de": "Soll das Ticket zum Gesamtpreis hinzugefügt werden? (Ja = 1 | Nein = 0)",
+        "en": "Should the ticket be included to the total price? (Yes = 1 | No = 0)"
     }
 }
 
@@ -119,11 +123,18 @@ def tarif_abfrage():
         if ticket == 0:
             print_message("price_kinder_half")
             print(f" Preis: {preis_kinder} Euro")
-            gesamtpreis += preis_kinder
+            print_message("total_price_query")
+            price_included = int(input())
+            if (price_included == 1): 
+                gesamtpreis += preis_kinder
+
         elif ticket == 1:
             print_message("price_kinder_full")
             print(f" Preis: {preis_kinder_ganz} Euro")
-            gesamtpreis += preis_kinder_ganz
+            print_message("total_price_query")
+            price_included = int(input())
+            if (price_included == 1): 
+                gesamtpreis += preis_kinder_ganz
 
     elif 14 <= alter_gast <= 17:
         while True:
@@ -139,11 +150,18 @@ def tarif_abfrage():
         if ticket == 0:
             print_message("price_discounted_half")
             print(f" Preis: {preis_ermaessigt} Euro")
-            gesamtpreis += preis_ermaessigt
+            print_message("total_price_query")
+            price_included = int(input())
+            if (price_included == 1): 
+                gesamtpreis += preis_ermaessigt
+
         elif ticket == 1:
             print_message("price_discounted_full")
             print(f" Preis: {preis_ermaessigt_ganz} Euro")
-            gesamtpreis += preis_ermaessigt_ganz
+            print_message("total_price_query")
+            price_included = int(input())
+            if (price_included == 1): 
+                gesamtpreis += preis_ermaessigt_ganz
 
     else:
         while True:
@@ -182,16 +200,26 @@ def tarif_abfrage():
                 if ticket == 0:
                     print_message("price_adult_half")
                     print(f" Preis: {preis_premium + 0.75} Euro")
-                    gesamtpreis += preis_premium + 0.75
+                    print_message("total_price_query")
+                    price_included = int(input())
+                    if (price_included == 1): 
+                        gesamtpreis += preis_premium + 0.75
+
                 elif ticket == 1:
                     print_message("price_adult_full")
                     print(f" Preis: {preis_premium_ganz + 0.75} Euro")
-                    gesamtpreis += preis_premium_ganz + 0.75
+                    print_message("total_price_query")
+                    price_included = int(input())
+                    if (price_included == 1): 
+                        gesamtpreis += preis_premium_ganz + 0.75
 
             else:
                 print_message("price_adult_half")
                 print(f" Preis: {preis_premium} Euro")
-                gesamtpreis += preis_premium
+                print_message("total_price_query")
+                price_included = int(input())
+                if (price_included == 1): 
+                    gesamtpreis += preis_premium
 
         elif antwort_rabatt == "b":
             while True:
@@ -207,11 +235,18 @@ def tarif_abfrage():
             if ticket == 0:
                 print_message("price_adult_half")
                 print(f" Preis: {preis_basis} Euro")
-                gesamtpreis += preis_basis
+                print_message("total_price_query")
+                price_included = int(input())
+                if (price_included == 1): 
+                    gesamtpreis += preis_basis
+
             elif ticket == 1:
                 print_message("price_adult_full")
                 print(f" Preis: {preis_basis_ganz} Euro")
-                gesamtpreis += preis_basis_ganz
+                print_message("total_price_query")
+                price_included = int(input())
+                if (price_included == 1): 
+                    gesamtpreis += preis_basis_ganz
 
         else:
             while True:
@@ -227,11 +262,18 @@ def tarif_abfrage():
             if ticket == 0:
                 print_message("price_adult_half")
                 print(f" Preis: {preis_erwachsene} Euro")
-                gesamtpreis += preis_erwachsene
+                print_message("total_price_query")
+                price_included = int(input())
+                if (price_included == 1): 
+                    gesamtpreis += preis_erwachsene
+
             elif ticket == 1:
                 print_message("price_adult_full")
                 print(f" Preis: {preis_erwachsene_ganz} Euro")
-                gesamtpreis += preis_erwachsene_ganz
+                print_message("total_price_query")
+                price_included = int(input())
+                if (price_included == 1): 
+                    gesamtpreis += preis_erwachsene_ganz
 
     print_message("enjoy_message")
 
